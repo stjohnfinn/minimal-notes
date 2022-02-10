@@ -1,0 +1,9 @@
+<svg data-ref="svg" xmlns="http://www.w3.org/2000/svg" class="surface" viewBox="-40,-40,400,420" width="400" height="420">
+      <defs>
+        <pattern width="6.25%" height="5.882352941176471%" viewBox="0,0,20,20" id="dot-NTM0NTA2ODc2NjY1MDc0Mg==">
+          <circle cx="10" cy="10" r="1" fill="#000"></circle>
+        </pattern>
+      </defs>
+      <rect data-ref="dots" x="0" y="0" width="320" height="340" fill="url('#dot-NTM0NTA2ODc2NjY1MDc0Mg==')"></rect>
+      <g data-ref="content" stroke="black" stroke-linecap="round" fill="none" stroke-width="10"><line x1="310" x2="310" y1="30" y2="330"></line><line x1="10" x2="310" y1="330" y2="330"></line><line x1="10" x2="10" y1="30" y2="330"></line><line x1="70" x2="250" y1="270" y2="270"></line><line x1="70" x2="250" y1="210" y2="210"></line><line x1="70" x2="250" y1="150" y2="150"></line><line x1="70" x2="70" y1="10" y2="90"></line><line x1="70" x2="90" y1="90" y2="90"></line><line x1="70" x2="90" y1="10" y2="10"></line><line x1="90" x2="90" y1="10" y2="90"></line><line x1="150" x2="150" y1="10" y2="90"></line><line x1="150" x2="170" y1="90" y2="90"></line><line x1="150" x2="170" y1="10" y2="10"></line><line x1="170" x2="170" y1="10" y2="90"></line><line x1="230" x2="230" y1="10" y2="90"></line><line x1="230" x2="250" y1="90" y2="90"></line><line x1="230" x2="250" y1="10" y2="10"></line><line x1="250" x2="250" y1="10" y2="90"></line><line x1="250" x2="310" y1="30" y2="30"></line><line x1="170" x2="230" y1="30" y2="30"></line><line x1="90" x2="150" y1="30" y2="30"></line><line x1="10" x2="70" y1="30" y2="30"></line></g>
+    </svg>

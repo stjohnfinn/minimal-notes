@@ -1,0 +1,171 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 50px);
+}
+.Home .HomeContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+  width: min(900px, 100%);
+}
+.Home .HomeContent h1 {
+  font-size: 4rem;
+  padding-bottom: 2rem;
+}
+@media screen and (max-width: 600px) {
+  .Home .HomeContent h1 {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .Home .HomeContent h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.description {
+  padding-top: 2rem;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+@media screen and (max-width: 850px) {
+  .description {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+.description div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  height: 100%;
+}
+@media screen and (max-width: 600px) {
+  .description div {
+    align-items: center;
+  }
+}
+.description div p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+@media screen and (max-width: 600px) {
+  .description div p {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .description div p {
+    font-size: 1.25rem;
+  }
+}
+.description table {
+  border-spacing: 0 1rem;
+}
+@media screen and (max-width: 850px) {
+  .description table {
+    margin-top: 2rem;
+  }
+}
+.description table td, .description table th {
+  border: 1px solid black;
+  padding: 0.75rem 1.5rem;
+}
+.description table td:nth-child(1), .description table th:nth-child(1) {
+  border-right: transparent;
+}
+.description table th {
+  font-size: 2rem;
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+}
+@media screen and (max-width: 500px) {
+  .description table th {
+    font-size: 1.5rem;
+  }
+}
+.description table tr {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+  transition: 0.2s all;
+}
+.description table td {
+  text-align: center;
+}
+@media screen and (max-width: 500px) {
+  .description table td {
+    font-size: 1rem;
+  }
+}
+.description table tbody tr {
+  animation: float 2s infinite forwards;
+}
+.description table tbody tr:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.description table tbody tr:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.description table tbody tr:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes float {
+  60% {
+    transform: translate(0, 0);
+    background-color: transparent;
+  }
+  80% {
+    transform: translate(-5px, -5px);
+    background-color: rgba(0, 0, 0, 0.125);
+  }
+  100% {
+    background-color: transparent;
+    transform: translate(0, 0);
+  }
+}
+.homeSignIn {
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+  transition: 0.2s all;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+}
+.homeSignIn:hover {
+  transform: translate(-5px, -5px);
+  background-color: rgba(0, 0, 0, 0.125);
+}
+@media screen and (max-width: 800px) {
+  .homeSignIn {
+    font-size: 4rem;
+  }
+}
+
+strong {
+  font-weight: unset;
+  text-decoration: underline;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid black;
+  background-color: white;
+}
+.footer p {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+
+/*# sourceMappingURL=Home.css.map */

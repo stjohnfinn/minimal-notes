@@ -1,0 +1,60 @@
+.bracketButton {
+  position: relative;
+  letter-spacing: 0.05rem;
+  transition: 0.1s all;
+}
+.bracketButton::after, .bracketButton::before {
+  transition: 0.1s all;
+  height: 100%;
+  width: 2px;
+  position: absolute;
+  content: "";
+  opacity: 0;
+  border: 1px solid black;
+}
+.bracketButton::after {
+  border-left: 1px solid transparent;
+  right: -10px;
+  transform: scale(1.2) translateX(10px);
+}
+.bracketButton::before {
+  border-right: 1px solid transparent;
+  left: -10px;
+  transform: scale(1.2) translateX(-10px);
+}
+.bracketButton:hover::after, .bracketButton:hover::before {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.Navbar {
+  border-bottom: 1px solid black;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.125);
+}
+.Navbar h1 {
+  padding-left: 0.5rem;
+  font-size: 1.5rem;
+}
+.Navbar div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: min(55%, 250px);
+  padding-right: 2rem;
+  font-size: min(0.8rem, 3vw);
+}
+.Navbar div .navLink {
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
+}
+.Navbar div .navLink:visited {
+  color: black;
+}
+
+/*# sourceMappingURL=Navbar.css.map */
