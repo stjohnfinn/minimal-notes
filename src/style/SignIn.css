@@ -18,7 +18,7 @@
   justify-content: center;
 }
 .SignIn .loginForm h1 {
-  font-size: 4rem;
+  font-size: 2.5rem;
   -webkit-user-select: none;
   /* Safari */
   -moz-user-select: none;
@@ -27,6 +27,11 @@
   /* IE10+/Edge */
   user-select: none;
   /* Standard */
+}
+@media screen and (max-width: 500px) {
+  .SignIn .loginForm h1 {
+    font-size: 2rem;
+  }
 }
 .SignIn .loginForm div {
   font-size: 1rem;
@@ -62,6 +67,32 @@
 .SignIn .loginForm button:hover {
   transform: translate(-5px, -5px);
   background-color: rgba(0, 0, 0, 0.125);
+}
+.SignIn .loginForm #alertMessage {
+  height: min-content;
+  width: min(300px, 100%);
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.SignIn .loginForm .hidden {
+  display: none;
+}
+.SignIn .loginForm .shown {
+  display: block;
+}
+.SignIn .loginForm .success {
+  background-color: rgba(100, 255, 100, 0.5);
+  border: 1px solid black;
+}
+.SignIn .loginForm .failure {
+  background-color: rgba(255, 100, 100, 0.5);
+  border: 1px solid black;
+}
+.SignIn .loginForm .invalidField {
+  border-bottom-color: rgba(255, 100, 100, 0.5);
+  border-bottom-width: 2px;
 }
 
 p {
