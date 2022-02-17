@@ -8,6 +8,7 @@
     text-align: center;
 
     min-height: calc(100vh - 50px);
+    padding-top: 1rem;
 
     .loginForm {
         border: 1px solid black;
@@ -54,6 +55,18 @@
                     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
                     background-color: rgba(0, 0, 0, 0.125);
                 }
+
+                &:disabled {
+                    transform: translate(0, 0);
+                    border-color: gray;
+                    color: gray;
+                    box-shadow: none;
+                    background-color: rgba(0, 0, 0, 0.05);
+    
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.05);
+                    }
+                }
             }
         }
 
@@ -71,6 +84,18 @@
             &:hover {
                 transform: translate(-5px, -5px);
                 background-color: rgba(0, 0, 0, 0.125);
+            }
+
+            &:disabled {
+                transform: translate(0, 0);
+                border-color: gray;
+                color: gray;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.05);
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.05);
+                }
             }
         }
 
@@ -109,7 +134,7 @@
 }
 
 p {
-    padding-top: 1rem;
+    margin: 1rem;
     color:rgba(0, 0, 0, 0.5);
 }
 

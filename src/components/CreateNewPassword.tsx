@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { validatePassword } from '../validateUserCredentials.mjs';
 
 export default function CreateNewPassword() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [alertMsg, setAlertMsg] = useState('');
+    const [alertStyle, setAlertStyle] = useState('hidden');
 
     function handleChange(e: any) : void {
         const name : string = e.target.name;
@@ -17,14 +21,24 @@ export default function CreateNewPassword() {
     function handleSubmit() : void {
         console.log(password);
         console.log(confirmPassword);
-    }
 
-    function validateInput(email : string) : boolean {
-        let x : number = Math.random();
-        if (x > 0.5) {
-            return true;
-        } else {
-            return false;
+        if (confirmPassword !== password) {
+            setAlertStyle('shown failure');
+            setAlertMsg('Passwords do not match.');
+            return;
+        } if (!validatePassword(password)) {
+            setAlertStyle('shown failure');
+            setAlertMsg('Invalid password. Double check you input everything correctly. Passwords must be 8-16 characters ' +
+            'long, include at least one special character (~!@#$$%^&*-+=+[]{};:,.?), and have at least five unique ' +
+            'characters. ' );
+            return;
+        }
+
+        try {
+        } catch {
+            setAlertStyle('shown failure');
+            setAlertMsg('Error! Unfortunately, there is no account associated with that address');
+            return;
         }
     }
 
@@ -42,7 +56,9 @@ export default function CreateNewPassword() {
                         <input type='password' name='confirmPassword' value={confirmPassword} onChange={handleChange} autoComplete='off' />
                     </div>
                 </form>
+                <div className={alertStyle} id='alertMessage'>{alertMsg}</div>
                 <button onClick={handleSubmit} >Submit</button>
+                <p>Clicked on accident? <Link to='/signin' className='registerLink' >Sign In.</Link></p>
             </div>
         </div>
     )

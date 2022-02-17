@@ -12,22 +12,26 @@ import Register from './Register';
 import ForgotPassword from './ForgotPassword';
 // @ts-ignore;
 import CreateNewPassword from './CreateNewPassword';
+import { AuthProvider } from '../contexts/AuthContext';
+import UserDirectory from './UserDirectory';
 
 function App() {
 
     return (
-        <BrowserRouter>
-            <div className='App'>
-                <Navbar />
-                <Routes >
-                    <Route path='/' element={<Home />} />
-                    <Route path='/signin' element={<SignIn />} />
-                    <Route path='/register' element={<Register />} />
-                    <Route path='/forgotpassword' element={<ForgotPassword />} />
-                    <Route path='/createpassword' element={<CreateNewPassword />} />
-                </Routes>
-            </div>
-        </BrowserRouter>
+        <AuthProvider>
+            <BrowserRouter>
+                <div className='App'>
+                    <Navbar />
+                    <Routes >
+                        <Route path='/' element={<Home />} />
+                        <Route path='/signin' element={<SignIn />} />
+                        <Route path='/register' element={<Register />} />
+                        <Route path='/forgotpassword' element={<ForgotPassword />} />
+                        <Route path='/directory' element={<UserDirectory />} />
+                    </Routes>
+                </div>
+            </BrowserRouter>
+        </AuthProvider>
     )
 }
 

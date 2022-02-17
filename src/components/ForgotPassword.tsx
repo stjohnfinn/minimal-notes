@@ -1,35 +1,36 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/ForgotPassword.css';
+import { validateEmail } from '../validateUserCredentials.mjs';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function ForgotPassword() {
     const [email, setUsername] = useState('');
-    const [msgClass, setMsgClass] = useState('hidden');
-    const [resetMsg, setResetMsg] = useState('');
+    const [alertStyle, setAlertStyle] = useState('hidden');
+    const [alertMsg, setAlertMsg] = useState('');
+    const { resetPassword } = useAuth(); 
 
     function handleChange(e: any) : void {
         const value : string = e.target.value;
         setUsername(value);
     }
 
-    function handleSubmit() : void {
+    async function handleSubmit() : Promise<void> {
         console.log(email);
 
-        if (validateInput(email)) {
-            setMsgClass('shown success');
-            setResetMsg('Success! An email was sent to that address with further instructions.');
-        } else {
-            setMsgClass('shown failure');
-            setResetMsg('Error! Unfortunately, there is no account associated with that address');
+        if (!validateEmail(email)) {
+            setAlertStyle('shown failure');
+            setAlertMsg('Error! Unfortunately, there is no account associated with that address');
         }
-    }
 
-    function validateInput(email : string) : boolean {
-        let x : number = Math.random();
-        if (x > 0.5) {
-            return true;
-        } else {
-            return false;
+        try {
+            await resetPassword(email);
+            setAlertStyle('shown success');
+            setAlertMsg('Success! Check your inbox for further instructions.');
+        } catch {
+            setAlertStyle('shown failure');
+            setAlertMsg('Error! Unfortunately, there is no account associated with that address');
+            return;
         }
     }
 
@@ -43,10 +44,10 @@ export default function ForgotPassword() {
                         <input type='text' name='email' value={email} onChange={handleChange} autoComplete='email' />
                     </div>
                 </form>
-                <div className={msgClass} id='resetMessage'>{resetMsg}</div>
+                <div className={alertStyle} id='alertMessage'>{alertMsg}</div>
                 <button onClick={handleSubmit} >Submit</button>
             </div>
-            <p>Already have an account? <Link to='/signin' className='registerLink' >Sign In.</Link></p>
+            <p>Clicked on accident? <Link to='/signin' className='registerLink' >Sign In.</Link></p>
         </div>
     )
 }

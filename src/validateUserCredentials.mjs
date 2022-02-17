@@ -7,12 +7,12 @@ import * as EmailValidator from 'email-validator';
  * @returns true if both email and password pass all validation tests, false if not
  */
 export default function validateUserCredentials(email, password) {
-    return validateEmail(email) && validatePassword(password);
+    return [validateEmail(email), validatePassword(password)];
 }
 
 
 //  uses javascript validator node module to validate an email address
-function validateEmail(email) {
+export function validateEmail(email) {
     return EmailValidator.validate(email);
 }
 
@@ -27,11 +27,11 @@ function validateEmail(email) {
  * @param {string} password 
  * @returns true if the password is valid, false if not
  */
-function validatePassword(password) {
+export function validatePassword(password) {
     
     const length = password.length;
 
-    if (length > 16 || length < 8) {
+    if (length < 8) {
         return false;
     }
 
@@ -40,10 +40,6 @@ function validatePassword(password) {
     }
 
     if (!hasNumberAndLetter(password)) {
-        return false;
-    }
-
-    if (!hasSpecialChar(password)) {
         return false;
     }
 
