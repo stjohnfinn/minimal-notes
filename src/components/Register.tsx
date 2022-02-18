@@ -1,4 +1,3 @@
-import { validate } from 'email-validator';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -102,10 +101,8 @@ export default function Register() {
         setLoadingState(true);
         console.log('successfully validated');
 
-        let res;
-
         try {
-            res = await register(email, password);
+            await register(email, password);
         } catch {
             setAlertMsg('Failed to create an account.');
             setAlertStyle('shown failure');

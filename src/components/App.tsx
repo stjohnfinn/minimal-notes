@@ -11,7 +11,6 @@ import Register from './Register';
 // @ts-ignore;
 import ForgotPassword from './ForgotPassword';
 // @ts-ignore;
-import CreateNewPassword from './CreateNewPassword';
 import { AuthProvider } from '../contexts/AuthContext';
 import UserDirectory from './UserDirectory';
 

@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom';
 
 export default function UserDirectory() {
     const { currentUser, signOut } = useAuth();
-    const [files, setFiles] = useState(null);
+    const [files, setFiles] = useState<any[]>([]);
     const navigate = useNavigate();
 
     const [userEmail, setUserEmail] = useState('Undefined');
+
+    const ATLAS_DB_URI = process.env.REACT_APP_ATLAS_DB_URI;
 
     useEffect( () => {
         console.log('checking for existing current user');
@@ -19,7 +21,41 @@ export default function UserDirectory() {
             setUserEmail(currentUser.email);
             console.log('existing user found.');
         }
-    });
+
+        const docs = retrieveDocuments();
+    }, [currentUser, navigate]);
+
+    async function retrieveDocuments() {
+        return await fetch(ATLAS_DB_URI + '/documents/findByEmail/' + encodeURI(currentUser.email), {
+            method: "GET"
+        })
+            .then(res => res.json())
+            .then(data => loadFilesIntoState(data))
+            .catch(err => console.log(err));
+    }
+
+    function loadFilesIntoState(docs: any): void {
+        console.log(docs);
+        let fileArray = [];
+        for (let i = 0; i < docs.length; i++) {
+            const file = docs[i];
+            const lastUpdated = new Date(Date.parse(file.updatedAt)).toDateString();
+            let fileComponent = (
+                <div className='file' key={i}>
+                    <div className='fileInfo'>
+                        <h1>{file.title}</h1>
+                        <p>Edited: {lastUpdated}</p>
+                    </div>
+                    <div className='fileOperations'>
+                        <a><img src='/images/delete.svg' /></a>
+                        <a><img src='/images/edit.svg' /></a>
+                    </div>
+                </div>
+            );
+            fileArray.push(fileComponent);
+        }
+        setFiles(fileArray);
+    }
 
     async function handleSignOut(e: object): Promise<void> {
         try {
@@ -38,8 +74,8 @@ export default function UserDirectory() {
                     <a onClick={handleSignOut}>sign out</a>
                 </div>
                 <div className='files'>
+                    {files}
                     <div className='create'>
-                        {files}
                         <a><img src='/images/create.svg' /></a>
                     </div>
                 </div>
