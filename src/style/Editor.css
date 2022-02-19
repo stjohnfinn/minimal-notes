@@ -1,0 +1,42 @@
+.editor {
+  padding: 1rem;
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.editor div {
+  width: min(100%, 800px);
+}
+.editor div .fileHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.editor div .fileHeader a {
+  cursor: pointer;
+  border: 1px solid black;
+  border-bottom: none;
+  padding: 0.25rem;
+  padding-bottom: unset;
+}
+.editor div .editorInput {
+  border: 1px solid black;
+  padding: 1rem;
+}
+.editor div .editorInput .header {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.editor div .editorInput .body {
+  font-size: 1rem;
+}
+.editor div .editorInput input {
+  border: none;
+  width: 100%;
+  font-family: "Assistant";
+}
+
+/*# sourceMappingURL=Editor.css.map */

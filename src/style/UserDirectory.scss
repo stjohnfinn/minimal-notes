@@ -123,3 +123,32 @@
         }
     }
 }
+
+.loader-docs {
+    margin: 2rem;
+    height: 250px;
+    width: 200px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    div {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top: 3px solid black;
+        border-bottom: 3px solid black;
+        transform-origin: center;
+        
+        animation: spin 2s linear infinite forwards;
+    }
+
+    @keyframes spin {
+        to {
+        transform: rotate(360deg);
+        }
+    }
+}

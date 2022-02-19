@@ -1,0 +1,47 @@
+.editor {
+    padding: 1rem;
+    width: 100%;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
+        width: min(100%, 800px);
+
+        .fileHeader {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            a {
+                cursor: pointer;
+                border: 1px solid black;
+                border-bottom: none;
+                padding: 0.25rem;
+                padding-bottom: unset;
+            }
+        }
+
+        .editorInput {
+            border: 1px solid black;
+            padding: 1rem;
+    
+            .header {
+                font-size: 2rem;
+                font-weight: bold;
+            }
+
+            .body {
+                font-size: 1rem;
+            }
+
+            input {
+                border: none;
+                width: 100%;
+                font-family: 'Assistant';
+            }
+        }
+    }
+}

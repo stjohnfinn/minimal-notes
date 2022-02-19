@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function UserDirectory() {
     const { currentUser, signOut } = useAuth();
-    const [files, setFiles] = useState<any[]>([]);
+    const [files, setFiles] = useState<any[]>([(<h1 key={1}>something</h1>)]);
     const navigate = useNavigate();
 
     const [userEmail, setUserEmail] = useState('Undefined');
@@ -22,10 +22,18 @@ export default function UserDirectory() {
             console.log('existing user found.');
         }
 
-        const docs = retrieveDocuments();
+        retrieveDocuments();
     }, [currentUser, navigate]);
 
     async function retrieveDocuments() {
+        setFiles([
+            (
+                <div className='loader-docs' key={0}>
+                    <div></div>
+                </div>
+            )
+        ]);
+
         return await fetch(ATLAS_DB_URI + '/documents/findByEmail/' + encodeURI(currentUser.email), {
             method: "GET"
         })
@@ -47,8 +55,8 @@ export default function UserDirectory() {
                         <p>Edited: {lastUpdated}</p>
                     </div>
                     <div className='fileOperations'>
-                        <a><img src='/images/delete.svg' /></a>
-                        <a><img src='/images/edit.svg' /></a>
+                        <a><img src='/images/delete.svg' alt='delete' /></a>
+                        <a><img src='/images/edit.svg' alt='remove' /></a>
                     </div>
                 </div>
             );
@@ -76,7 +84,7 @@ export default function UserDirectory() {
                 <div className='files'>
                     {files}
                     <div className='create'>
-                        <a><img src='/images/create.svg' /></a>
+                        <a><img src='/images/create.svg' alt='create' /></a>
                     </div>
                 </div>
             </div>

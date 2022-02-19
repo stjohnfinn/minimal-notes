@@ -13,6 +13,7 @@ import ForgotPassword from './ForgotPassword';
 // @ts-ignore;
 import { AuthProvider } from '../contexts/AuthContext';
 import UserDirectory from './UserDirectory';
+import Editor from './Editor';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
                         <Route path='/register' element={<Register />} />
                         <Route path='/forgotpassword' element={<ForgotPassword />} />
                         <Route path='/directory' element={<UserDirectory />} />
+                        <Route path='/editor' element={<Editor />} />
                     </Routes>
                 </div>
             </BrowserRouter>
