@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import '../style/Home.css';
 
 export default function Home() {
+
+    const { currentUser } = useAuth();
+
     return (
         <div className='Home'>
             <div className='HomeContent'>
@@ -39,7 +43,7 @@ export default function Home() {
                     </table>
                 </div>
             </div>
-            <Link to='/signin' className='homeSignIn' >Launch</Link>
+            <Link to={currentUser ? '/directory' : '/signin'} className='homeSignIn' >Launch</Link>
             <div className='footer'>
                 <p>all rights reserved MiniMemo 2022.</p>
             </div>
